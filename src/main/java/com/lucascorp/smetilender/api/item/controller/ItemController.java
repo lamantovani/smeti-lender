@@ -87,5 +87,23 @@ public class ItemController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/lend/{id}")
+    @Transactional
+    public ResponseEntity lend(@PathVariable Long id, UriComponentsBuilder uriBuilder) {
+        var item = itemRepository.getReferenceById(id);
+        item.lend();
+        var uri = uriBuilder.path("/item/detail/{id}").buildAndExpand(item.getId()).toUri();
+        return ResponseEntity.created(uri).body(new ItemDedatilResponseDto(item));
+    }
+
+    @PutMapping("/give_back/{id}")
+    @Transactional
+    public ResponseEntity giveBack(@PathVariable Long id, UriComponentsBuilder uriBuilder) {
+        var item = itemRepository.getReferenceById(id);
+        item.giveBack();
+        var uri = uriBuilder.path("/item/detail/{id}").buildAndExpand(item.getId()).toUri();
+        return ResponseEntity.created(uri).body(new ItemDedatilResponseDto(item));
+    }
+
 
 }

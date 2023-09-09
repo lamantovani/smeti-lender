@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class ItemEntity implements Item{
+public class ItemEntity implements Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,12 +76,14 @@ public class ItemEntity implements Item{
     }
 
     @Override
-    public void toLoan() {
-
+    public void lend() {
+        this.status = StatusItemEnum.BORROWED;
+        this.updateDate = LocalDateTime.now();
     }
 
     @Override
     public void giveBack() {
-
+        this.status = StatusItemEnum.AVAILABLE;
+        this.updateDate = LocalDateTime.now();
     }
 }

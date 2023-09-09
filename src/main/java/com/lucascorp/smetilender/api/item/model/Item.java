@@ -4,6 +4,6 @@ public interface Item {
 
     void update(ItemUpdateRequestDto itemRequest);
     void delete();
-    void toLoan();
+    void lend();
     void giveBack();
 }
