@@ -1,4 +1,4 @@
-package com.lucascorp.smetilender.domain.api.item.enumeration;
+package com.lucascorp.smetilender.api.item.enumeration;
 
 public enum CategoryItemEnum {
 

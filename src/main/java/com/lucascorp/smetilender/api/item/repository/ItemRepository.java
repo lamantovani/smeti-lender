@@ -1,6 +1,6 @@
-package com.lucascorp.smetilender.domain.api.item.repository;
+package com.lucascorp.smetilender.api.item.repository;
 
-import com.lucascorp.smetilender.domain.api.item.model.ItemEntity;
+import com.lucascorp.smetilender.api.item.model.ItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Date;

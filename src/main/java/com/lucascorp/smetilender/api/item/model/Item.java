@@ -1,4 +1,4 @@
-package com.lucascorp.smetilender.domain.api.item.model;
+package com.lucascorp.smetilender.api.item.model;
 
 public interface Item {
 

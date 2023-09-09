@@ -1,8 +1,9 @@
-package com.lucascorp.smetilender.domain.api.item.controller;
+package com.lucascorp.smetilender.api.item.controller;
 
+import com.lucascorp.smetilender.api.item.model.*;
+import com.lucascorp.smetilender.api.item.repository.ItemRepository;
 import com.lucascorp.smetilender.domain.api.client.item.model.*;
 import com.lucascorp.smetilender.domain.api.item.model.*;
-import com.lucascorp.smetilender.domain.api.item.repository.ItemRepository;
 import com.lucascorp.smetilender.domain.item.model.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

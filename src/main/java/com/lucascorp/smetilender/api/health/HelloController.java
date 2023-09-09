@@ -1,4 +1,4 @@
-package com.lucascorp.smetilender.domain.api.health;
+package com.lucascorp.smetilender.api.health;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

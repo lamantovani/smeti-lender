@@ -1,7 +1,7 @@
-package com.lucascorp.smetilender.domain.api.item.model;
+package com.lucascorp.smetilender.api.item.model;
 
-import com.lucascorp.smetilender.domain.api.item.enumeration.CategoryItemEnum;
-import com.lucascorp.smetilender.domain.api.item.enumeration.StatusItemEnum;
+import com.lucascorp.smetilender.api.item.enumeration.CategoryItemEnum;
+import com.lucascorp.smetilender.api.item.enumeration.StatusItemEnum;
 
 import java.time.LocalDateTime;
 
