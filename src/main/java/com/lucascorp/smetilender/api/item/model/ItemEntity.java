@@ -5,6 +5,7 @@ import com.lucascorp.smetilender.api.item.enumeration.CategoryItemEnum;
 import com.lucascorp.smetilender.api.item.enumeration.StatusItemEnum;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -18,22 +19,26 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class ItemEntity {
+public class ItemEntity implements Item{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String name;
+
+    @NotNull
     private String description;
 
     @Enumerated(EnumType.STRING)
     private CategoryItemEnum category;
 
-    @Nullable
+    @NotNull
     @Enumerated(EnumType.STRING)
     private StatusItemEnum status;
 
+    @NotNull
     private LocalDateTime createDate;
 
     @Nullable
@@ -50,7 +55,8 @@ public class ItemEntity {
         this.createDate = LocalDateTime.now();
     }
 
-    public void updateData(ItemUpdateRequestDto itemRequest) {
+    @Override
+    public void update(ItemUpdateRequestDto itemRequest) {
         if (itemRequest.name() != null) {
             this.name = itemRequest.name();
         }
@@ -63,8 +69,19 @@ public class ItemEntity {
         this.updateDate = LocalDateTime.now();
     }
 
+    @Override
     public void delete() {
         this.deleteDate = LocalDateTime.now();
         this.status = StatusItemEnum.NOT_AVAILABLE;
+    }
+
+    @Override
+    public void toLoan() {
+
+    }
+
+    @Override
+    public void giveBack() {
+
     }
 }

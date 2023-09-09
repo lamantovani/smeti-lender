@@ -2,9 +2,6 @@ package com.lucascorp.smetilender.api.item.controller;
 
 import com.lucascorp.smetilender.api.item.model.*;
 import com.lucascorp.smetilender.api.item.repository.ItemRepository;
-import com.lucascorp.smetilender.domain.api.client.item.model.*;
-import com.lucascorp.smetilender.domain.api.item.model.*;
-import com.lucascorp.smetilender.domain.item.model.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -67,7 +64,7 @@ public class ItemController {
     @Transactional
     public ResponseEntity update(@PathVariable Long id, @RequestBody @Valid ItemUpdateRequestDto itemRequest, UriComponentsBuilder uriBuilder) {
         var item = itemRepository.getReferenceById(id);
-        item.updateData(itemRequest);
+        item.update(itemRequest);
         var uri = uriBuilder.path("/item/detail/{id}").buildAndExpand(item.getId()).toUri();
         return ResponseEntity.created(uri).body(new ItemDedatilResponseDto(item));
     }
